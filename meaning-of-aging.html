@@ -24,7 +24,7 @@
         <h2>Meaning of Aging <font size="3">[Prototype]</font></h2>
         <p>This web application is a prototype of the online portal for the proposed NEH project.</p>
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            <li><a data-toggle="tab" href="#home">Home</a></li>
             <li><a data-toggle="tab" href="#menu1">Results</a></li>
             <li><a data-toggle="tab" href="#menu2">Being Seen</a></li>
         </ul>
@@ -87,12 +87,30 @@
                           <img class="center-block img-responsive" src="images/being_seen.png" style="margin-bottom: 50px;" width="100%" height="500"></img>
                       </div>
                     </div>
-                  </div>
                 </div>
-
-
+            </div>
         </div>
     </div>
+    <script type='text/javascript'>
+
+
+    $(document).ready(function() {
+
+      // Javascript to enable link to tab
+      var url = document.location.toString();
+      if (url.match('#')) {
+          $('.nav-tabs a[href="#' + url.split('#')[1] + '-tab"]').tab('show');
+      } //add a suffix
+
+      // Change hash for page-reload
+      $('.nav-tabs a').on('shown.bs.tab', function (e) {
+          window.location.hash = e.target.hash;
+      })
+
+    });
+
+
+    </script>
 </body>
 
 </html>
